@@ -27,11 +27,12 @@ class TwilioController < ApplicationController
       :from => CALLER_ID,
       :to => params['number'],
       :url => 'http://howenstine.co/rick_roll.mp3',
+      :if_machine => 'Continue'
     }
 
     begin
       client = Twilio::REST::Client.new(ACCOUNT_SID, ACCOUNT_TOKEN)
-      client.account.calls.create data
+      client.account.calls.create(data)
     rescue StandardError => bang
       redirect_to :action => '.', 'msg' => "Error #{bang}"
       return
