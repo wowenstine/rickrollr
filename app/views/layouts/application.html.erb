@@ -9,6 +9,17 @@
 		   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 </head>
 <body>
+
+	<header class="top-bar">
+	<% if signed_in? %>
+	  Welcome <%= current_user.email %>
+	  <%= link_to "Sign out", session_path, method: :delete %>
+	<% else %>
+	  <%= link_to "Sign in!", new_session_path %>
+	  <%= link_to "Sign Up!", new_user_path %>
+	<% end %>
+  </header> 
+
 	<div id="container">
 	<div id="row">
 

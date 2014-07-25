@@ -1,9 +1,18 @@
-Rails.application.routes.draw do
+require "monban/constraints/signed_in"
+require "monban/constraints/signed_out"
 
-  root to: "homes#show"
+Rails.application.routes.draw do
+  constraints Monban::Constraints::SignedIn.new do
+    root to: "homes#show", as: :root
+  end
+
+  constraints Monban::Constraints::SignedOut.new do
+    root "sessions#new", as: :welcome
+  end
 
   resource :session, only: [:new, :create, :destroy]
   resources :users, only: [:new, :create]
+  resources :landings, only: [:show]
   post 'twilio/voice' => 'twilio#voice'
   post 'twilio/makecall' => 'twilio#makecall'
 
