@@ -1,22 +1,15 @@
-class TwilioController < ApplicationController
-  include Webhookable
+class CallsController < ApplicationController
+    include Webhookable
 
   after_filter :set_header
 
   skip_before_action :verify_authenticity_token
 
-  def voice
-    response = Twilio::TwiML::Response.new do |r|
-      r.Say 'Hey there you just got rick rolled! Hope it didn\'t let you down', :voice => 'alice'
-    end
-    render_twiml response
-  end
-
   ACCOUNT_SID = ENV['account_sid']
   ACCOUNT_TOKEN = ENV['auth_token']
   CALLER_ID = '13095170892'
 
-  def makecall
+  def create
     if !params['number']
       redirect_to :action => '.', 'msg' => 'Invalid phone number, ya big dummy!'
       return

@@ -3,7 +3,7 @@
 <h1>Are you ready to roll?</h1>
 <h4>Enter a number to get the party started:</h4>
 <%= params['msg'] %>
-<form action="twilio/makecall" method="post">
+<form action="calls" method="post">
     <input type="text" name="number" />
     <input type="submit" value="Roll em!">
 </form>
