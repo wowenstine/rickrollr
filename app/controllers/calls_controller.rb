@@ -10,15 +10,16 @@ class CallsController < ApplicationController
   CALLER_ID = '13095170892'
 
   def create
-    if !params['number']
-      redirect_to :action => '.', 'msg' => 'Invalid phone number, ya big dummy!'
-      return
-    end
+    # if !params['number']
+    #   redirect_to :action => '.', 'msg' => 'Invalid phone number, ya big dummy!'
+    #   return
+    # end
 
     # params sent to Twilio
     data = {
       :from => CALLER_ID,
       :to => params['number'],
+      :say => params['message'],
       :url => 'http://howenstine.co/rick_roll.mp3',
       :if_machine => 'Continue'
     }

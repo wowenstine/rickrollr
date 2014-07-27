@@ -1,3 +1,6 @@
+<div class="hero">
+  <div class="hero-inner">
+<div id="register">
 <h2>Sign In</h2>
 <%= form_for :session, url: session_path do |form| %>
   <div>
@@ -13,7 +16,7 @@
   </div>
 <% end %>
 
-<h1>Sign up!!</h1>
+<h2>Sign up</h2>
 
     <%= form_for(@user) do |form| %>
       <div>
@@ -27,3 +30,7 @@
       </div>
         <%= form.submit "Sign up!!" %>
     <% end %>
+
+  </div>
+</div>
+</div>

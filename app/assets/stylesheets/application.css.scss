@@ -1,0 +1,80 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_self
+ */
+
+@import "bourbon";
+@import 'base/grid-settings';
+@import "neat";
+@import "base/base";
+
+/* registration area */
+
+div#register {
+  @include outer-container;
+  @include span-columns(6);
+  @include shift(3);
+  button {
+  @include button(shiny, white);
+}
+
+}
+
+
+
+  /* hero body background */
+
+  html body {
+  $hero-background-top: darken(#B438F9, 15); 
+  $hero-background-bottom: adjust-hue($hero-background-top, 50);
+  $hero-color: white;
+  $gradient-angle: 910deg;
+  $hero-image: 'http://i.imgur.com/zgdp3vk.png';
+
+  @include background(url($hero-image), linear-gradient($gradient-angle, $hero-background-bottom, $hero-background-top), no-repeat $hero-background-top scroll);
+
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 2em;
+  background-position: top;
+  background-size: cover;
+  
+  .hero-inner {
+    @include outer-container;
+    @include clearfix;
+    padding: 1em;
+    margin: auto;
+    text-align: center;
+    color: $hero-color;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+
+    button {
+      @include button(simple, white);
+      font-size: $base-font-size;
+      outline: none;
+    }
+
+  }
+}
+
+/* roll em page */
+
+div#center {
+   @include span-columns(6);
+   @include shift(3);
+}
+
+

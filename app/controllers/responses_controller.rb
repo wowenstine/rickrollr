@@ -9,7 +9,7 @@ class ResponsesController < ApplicationController
 
   def create
     response = Twilio::TwiML::Response.new do |r|
-      r.Say 'Hey there you just got rick rolled! Hope it didn\'t let you down', :voice => 'alice'
+      r.Say 'You just got rick rolled' :voice => 'alice'
     end
     render_twiml response
   end
