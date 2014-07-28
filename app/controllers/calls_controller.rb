@@ -10,16 +10,14 @@ class CallsController < ApplicationController
   CALLER_ID = '13095170892'
 
   def create
-    # if !params['number']
-    #   redirect_to :action => '.', 'msg' => 'Invalid phone number, ya big dummy!'
-    #   return
-    # end
-
-    # params sent to Twilio
+    if !params['number']
+      redirect_to controller: 'homes', action: 'show', 'msg' => 'Invalid phone number'
+      return
+    end
+ 
     data = {
       :from => CALLER_ID,
       :to => params['number'],
-      :say => params['message'],
       :url => 'http://howenstine.co/rick_roll.mp3',
       :if_machine => 'Continue'
     }
@@ -28,7 +26,7 @@ class CallsController < ApplicationController
       client = Twilio::REST::Client.new(ACCOUNT_SID, ACCOUNT_TOKEN)
       client.account.calls.create(data)
     rescue StandardError => bang
-      redirect_to :action => '.', 'msg' => "Error #{bang}"
+      redirect_to controller: 'homes', action: 'show', 'msg' => "Error #{bang} "
       return
     end
     redirect_to root_path

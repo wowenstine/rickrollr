@@ -4,8 +4,10 @@
 <div class="hero-copy">
 <h1> Are you ready to roll?</h1>
 <h5>Enter a number to get the party started</h5>
+
+<div style="background: #FBE3E4">
+	<%= params['msg'] %>
 </div>
-<%= params['msg'] %>
 <form action="calls" method="post">
     <input type="text" name="number" placeholder="number e.g. 2124095555" />
     <input type="submit" value="Roll em!">
