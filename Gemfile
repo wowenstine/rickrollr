@@ -1,3 +1,4 @@
+ruby '2.1.2'
 source 'https://rubygems.org'
 gem 'dotenv-rails', :groups => [:development, :test]
 gem 'rails', '4.1.4'
