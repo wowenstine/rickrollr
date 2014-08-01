@@ -5,8 +5,8 @@ class CallsController < ApplicationController
 
   skip_before_action :verify_authenticity_token
 
-  ACCOUNT_SID = ENV['account_sid']
-  ACCOUNT_TOKEN = ENV['auth_token']
+  ACCOUNT_SID = ENV['ACCOUNT_SID']
+  ACCOUNT_TOKEN = ENV['AUTH_TOKEN']
   CALLER_ID = '13095170892'
 
   def create
