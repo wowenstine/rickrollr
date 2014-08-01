@@ -11,7 +11,7 @@ class CallsController < ApplicationController
 
   def create
     if !params['number']
-      redirect_to controller: 'homes', action: 'show', 'msg' => 'Invalid phone number'
+      redirect_to controller: 'homes', action: 'show', 'msg' => 'You need to enter a phone number for this work, if you get this error, you should probably quit the internet'
       return
     end
  

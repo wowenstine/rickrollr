@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Rickrollr</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -9,14 +10,14 @@
 <body>
 
 
-	<% if signed_in? %>
+<!-- 	<% if signed_in? %>
 	
 	 <em> <%= link_to "Sign out", session_path, method: :delete %> </em>
 	  <% else %>
 	  <%= link_to "Sign in", new_session_path %>
 	  <%= link_to "Sign up", new_user_path %>
 
-	<% end %>
+	<% end %> -->
 
 <div class="hero">
 	<div class="hero-inner">

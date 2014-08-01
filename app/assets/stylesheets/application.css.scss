@@ -41,21 +41,20 @@ div#register {
   $gradient-angle: 910deg;
   $hero-image: 'http://i.imgur.com/zgdp3vk.png';
 
-  @include background(url($hero-image), linear-gradient($gradient-angle, $hero-background-bottom, $hero-background-top), no-repeat $hero-background-top scroll);
+  @include background(url($hero-image), linear-gradient($gradient-angle, $hero-background-bottom, $hero-background-top), no-repeat $hero-background-top);
 
-  background-repeat: no-repeat;
+  background-repeat: no-repeat; 
   height: 100%;
   width: 100%;
-  overflow-x: hidden;
-  overflow-y: auto;
-  padding: 2em;
+  padding: 1em;
   background-position: top;
+  background-attachment: fixed;
   background-size: cover;
   
   .hero-inner {
     @include outer-container;
+    display: inline;
     @include clearfix;
-    padding: 1em;
     margin: auto;
     text-align: center;
     color: $hero-color;
@@ -70,11 +69,28 @@ div#register {
   }
 }
 
+@media(max-width: 400px){
+  h5{
+  font-size: 1em;
+  }
+  h1{
+  font-size: 1.5em;
+  }
+  div#center{
+   width: 100%  !important;
+   padding: 1em !important;
+   margin: auto !important;
+  }
+}
+
+
 /* roll em page */
+
 
 div#center {
    @include span-columns(6);
    @include shift(3);
+
 }
 
 

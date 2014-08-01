@@ -16,4 +16,5 @@ gem 'twilio-ruby'
 gem 'bourbon', '~> 4.0.2'
 gem 'neat', '~> 1.6.0'
 gem 'bitters', '~> 0.10.0'
+gem 'rails_12factor', group: :production
 
