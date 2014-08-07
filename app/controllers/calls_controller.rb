@@ -10,8 +10,8 @@ class CallsController < ApplicationController
   CALLER_ID = '13095170892'
 
   def create
-    if !params['number']
-      redirect_to controller: 'homes', action: 'show', 'msg' => 'You need to enter a phone number for this work, if you get this error, you should probably quit the internet'
+    if params['number'].empty?
+      redirect_to controller: 'homes', action: 'show', 'msg' => 'You need to enter a number' 
       return
     end
  
@@ -31,4 +31,5 @@ class CallsController < ApplicationController
     end
     redirect_to root_path
   end
+
 end
