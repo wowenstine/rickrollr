@@ -18,7 +18,7 @@ class CallsController < ApplicationController
     data = {
       :from => CALLER_ID,
       :to => params['number'],
-      :url => 'http://howenstine.co/rick_roll.mp3',
+      :url => voice_url(:message => params['message']), 
       :if_machine => 'Continue'
     }
 
